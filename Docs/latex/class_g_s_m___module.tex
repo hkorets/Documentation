@@ -1,0 +1,308 @@
+\doxysection{GSM\+\_\+\+Module Class Reference}
+\hypertarget{class_g_s_m___module}{}\label{class_g_s_m___module}\index{GSM\_Module@{GSM\_Module}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_s_m___module_a95c96525d9fa813e204f9b04e7ae3276}{GSM\+\_\+\+Module}} (const \mbox{\hyperlink{struct_parameters}{Parameters}} \&parameters)
+\begin{DoxyCompactList}\small\item\em Constructor for the GSM module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_ab7a2b6fc1f3fdf8e0954d6c745989718}{send\+\_\+sms}} (const char \texorpdfstring{$\ast$}{*}number, const char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Sends an SMS to the specified number with the given message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_abf2d6a6dcdb9245ad4f2df99b5709530}{make\+\_\+call}} (const char \texorpdfstring{$\ast$}{*}number)
+\begin{DoxyCompactList}\small\item\em Initiates a call to the specified phone number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_ae9814cef65f36094c72da2babf88a904}{hang\+\_\+up}} ()
+\begin{DoxyCompactList}\small\item\em Hangs up the current call. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_af05508a1bf8a0fb40906dcb7b9bb60f9}{receive\+\_\+call}} ()
+\begin{DoxyCompactList}\small\item\em Recieves an incoming call. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_a59f6284475cad32984fc04727dc3e7c4}{receive\+\_\+sms}} ()
+\begin{DoxyCompactList}\small\item\em Recieves an incoming SMS. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_s_m___module_a8ed6e8752fd00ecf7a91cb4dc54a5855}{transmit}} (const char \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Transmits data via UART. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_s_m___module_a3b0e4014a2b7595e0384143cf0e3446d}{receive}} (char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Receives data via UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_a1f632764cdcab45af061fbd0db3df9ee}{start\+\_\+receiving}} ()
+\begin{DoxyCompactList}\small\item\em Starts receiving data via UART interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_s_m___module_a59ddf11268b8baaab2bbdb6087b26f17}{get\+\_\+signal\+\_\+strength}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the signal strength of the GSM connection. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{class_g_s_m___module_a1cb6efab39560b6d26b1a9b1803a2f51}{get\+\_\+date}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current date and time from the GSM module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_a4acd995be66ca02d1c560edb3c6982f3}{receive\+\_\+signal\+\_\+strength}} (std\+::string buffer)
+\begin{DoxyCompactList}\small\item\em Handles the response for signal strength queries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_s_m___module_a40f53cf638c071fe1788cad71139c87b}{receive\+\_\+date\+\_\+and\+\_\+time}} (std\+::string buffer)
+\begin{DoxyCompactList}\small\item\em Receives the date and time from the GSM module and processes it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_g_s_m___module_a7e23e3cd0a1bd91a156ef41997ccdd91}\label{class_g_s_m___module_a7e23e3cd0a1bd91a156ef41997ccdd91} 
+const char {\bfseries END\+\_\+\+OF\+\_\+\+MSG} = 0x1A
+\item 
+\Hypertarget{class_g_s_m___module_a35afcd3bf62cfb5ef07928dd4c4a0e56}\label{class_g_s_m___module_a35afcd3bf62cfb5ef07928dd4c4a0e56} 
+State {\bfseries prev\+\_\+state} = IDLE
+\begin{DoxyCompactList}\small\item\em The previous state of the GSM module. \end{DoxyCompactList}\item 
+\Hypertarget{class_g_s_m___module_a5c53208c60f68e454f9e37a2497285dc}\label{class_g_s_m___module_a5c53208c60f68e454f9e37a2497285dc} 
+State {\bfseries current\+\_\+state} = IDLE
+\begin{DoxyCompactList}\small\item\em The current state of the GSM module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_s_m___module_ae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
+\begin{DoxyCompactList}\small\item\em UART receive complete callback function for handling data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_s_m___module_a95c96525d9fa813e204f9b04e7ae3276}\index{GSM\_Module@{GSM\_Module}!GSM\_Module@{GSM\_Module}}
+\index{GSM\_Module@{GSM\_Module}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{GSM\_Module()}{GSM\_Module()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a95c96525d9fa813e204f9b04e7ae3276} 
+GSM\+\_\+\+Module\+::\+GSM\+\_\+\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_parameters}{Parameters}} \&}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for the GSM module. 
+
+Constructs a \doxylink{class_g_s_m___module}{GSM\+\_\+\+Module} object and initializes communication.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em parameters} & Initialization parameters including UART handle and GPIO pins.\\
+\hline
+\mbox{\texttt{ in}}  & {\em parameters} & Initialization parameters for the GSM module, including UART configuration.\\
+\hline
+\end{DoxyParams}
+This constructor initializes the GSM module and sets it to text mode for SMS. It also starts receiving data via UART interrupts. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_s_m___module_a1cb6efab39560b6d26b1a9b1803a2f51}\index{GSM\_Module@{GSM\_Module}!get\_date@{get\_date}}
+\index{get\_date@{get\_date}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{get\_date()}{get\_date()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a1cb6efab39560b6d26b1a9b1803a2f51} 
+std\+::pair$<$ std\+::string, std\+::string $>$ GSM\+\_\+\+Module\+::get\+\_\+date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the current date and time from the GSM module. 
+
+\begin{DoxyReturn}{Returns}
+A pair containing the date and time as strings. 
+\end{DoxyReturn}
+\Hypertarget{class_g_s_m___module_a59ddf11268b8baaab2bbdb6087b26f17}\index{GSM\_Module@{GSM\_Module}!get\_signal\_strength@{get\_signal\_strength}}
+\index{get\_signal\_strength@{get\_signal\_strength}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{get\_signal\_strength()}{get\_signal\_strength()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a59ddf11268b8baaab2bbdb6087b26f17} 
+int GSM\+\_\+\+Module\+::get\+\_\+signal\+\_\+strength (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the signal strength of the GSM connection. 
+
+Retrieves the signal strength from the GSM module.
+
+\begin{DoxyReturn}{Returns}
+Signal strength as an integer value.
+
+The signal strength (RSSI) as an integer, or -\/1 if retrieval fails.
+\end{DoxyReturn}
+Sends the AT command to get the signal strength and parses the response. \Hypertarget{class_g_s_m___module_ae9814cef65f36094c72da2babf88a904}\index{GSM\_Module@{GSM\_Module}!hang\_up@{hang\_up}}
+\index{hang\_up@{hang\_up}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{hang\_up()}{hang\_up()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_ae9814cef65f36094c72da2babf88a904} 
+void GSM\+\_\+\+Module\+::hang\+\_\+up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Hangs up the current call. 
+
+Ends the current call.
+
+Sends the "{}\+ATH"{} AT command to hang up the current call if the GSM module is in the CALLING\+\_\+\+PROCESS state. \Hypertarget{class_g_s_m___module_abf2d6a6dcdb9245ad4f2df99b5709530}\index{GSM\_Module@{GSM\_Module}!make\_call@{make\_call}}
+\index{make\_call@{make\_call}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{make\_call()}{make\_call()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_abf2d6a6dcdb9245ad4f2df99b5709530} 
+void GSM\+\_\+\+Module\+::make\+\_\+call (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{number}{}\end{DoxyParamCaption})}
+
+
+
+Initiates a call to the specified phone number. 
+
+Initiates a call to the specified number.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em number} & Phone number to call.\\
+\hline
+\mbox{\texttt{ in}}  & {\em number} & The phone number to call.\\
+\hline
+\end{DoxyParams}
+If the GSM module is in the IDLE state, this function sends the AT command to initiate a call to the specified phone number. \Hypertarget{class_g_s_m___module_a3b0e4014a2b7595e0384143cf0e3446d}\index{GSM\_Module@{GSM\_Module}!receive@{receive}}
+\index{receive@{receive}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a3b0e4014a2b7595e0384143cf0e3446d} 
+bool GSM\+\_\+\+Module\+::receive (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Receives data via UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the buffer for storing received data. \\
+\hline
+{\em size} & Maximum size of the buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if reception is successful, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_g_s_m___module_af05508a1bf8a0fb40906dcb7b9bb60f9}\index{GSM\_Module@{GSM\_Module}!receive\_call@{receive\_call}}
+\index{receive\_call@{receive\_call}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{receive\_call()}{receive\_call()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_af05508a1bf8a0fb40906dcb7b9bb60f9} 
+void GSM\+\_\+\+Module\+::receive\+\_\+call (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Recieves an incoming call. 
+
+Answers an incoming call.
+
+Sends the "{}\+ATA"{} AT command to answer an incoming call. \Hypertarget{class_g_s_m___module_a40f53cf638c071fe1788cad71139c87b}\index{GSM\_Module@{GSM\_Module}!receive\_date\_and\_time@{receive\_date\_and\_time}}
+\index{receive\_date\_and\_time@{receive\_date\_and\_time}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{receive\_date\_and\_time()}{receive\_date\_and\_time()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a40f53cf638c071fe1788cad71139c87b} 
+void GSM\+\_\+\+Module\+::receive\+\_\+date\+\_\+and\+\_\+time (\begin{DoxyParamCaption}\item[{std\+::string}]{buffer}{}\end{DoxyParamCaption})}
+
+
+
+Receives the date and time from the GSM module and processes it. 
+
+Parses and updates the date and time information.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em buffer} & The buffer containing the date and time data.\\
+\hline
+\mbox{\texttt{ in}}  & {\em buffer} & The raw data buffer containing date and time information.\\
+\hline
+\end{DoxyParams}
+Extracts and processes the date and time from the buffer, adjusting for time zone offsets and storing them as strings. \Hypertarget{class_g_s_m___module_a4acd995be66ca02d1c560edb3c6982f3}\index{GSM\_Module@{GSM\_Module}!receive\_signal\_strength@{receive\_signal\_strength}}
+\index{receive\_signal\_strength@{receive\_signal\_strength}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{receive\_signal\_strength()}{receive\_signal\_strength()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a4acd995be66ca02d1c560edb3c6982f3} 
+void GSM\+\_\+\+Module\+::receive\+\_\+signal\+\_\+strength (\begin{DoxyParamCaption}\item[{std\+::string}]{buffer}{}\end{DoxyParamCaption})}
+
+
+
+Handles the response for signal strength queries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Buffer containing the response string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_g_s_m___module_a59f6284475cad32984fc04727dc3e7c4}\index{GSM\_Module@{GSM\_Module}!receive\_sms@{receive\_sms}}
+\index{receive\_sms@{receive\_sms}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{receive\_sms()}{receive\_sms()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a59f6284475cad32984fc04727dc3e7c4} 
+void GSM\+\_\+\+Module\+::receive\+\_\+sms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Recieves an incoming SMS. 
+
+Receives and parses SMS data from the GSM module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer} & The raw data buffer containing SMS information.\\
+\hline
+\end{DoxyParams}
+Extracts the sender\textquotesingle{}s number and message content from the buffer and updates the {\ttfamily sms\+\_\+sender} and {\ttfamily sms\+\_\+content} attributes. \Hypertarget{class_g_s_m___module_ab7a2b6fc1f3fdf8e0954d6c745989718}\index{GSM\_Module@{GSM\_Module}!send\_sms@{send\_sms}}
+\index{send\_sms@{send\_sms}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{send\_sms()}{send\_sms()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_ab7a2b6fc1f3fdf8e0954d6c745989718} 
+void GSM\+\_\+\+Module\+::send\+\_\+sms (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{number}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Sends an SMS to the specified number with the given message. 
+
+Sends an SMS to the specified number.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em number} & Recipient\textquotesingle{}s phone number. \\
+\hline
+ & {\em message} & SMS message content.\\
+\hline
+\mbox{\texttt{ in}}  & {\em number} & The recipient\textquotesingle{}s phone number. \\
+\hline
+\mbox{\texttt{ in}}  & {\em message} & The SMS content.\\
+\hline
+\end{DoxyParams}
+Sends an SMS by transmitting the AT command for SMS along with the message. If the operation fails, it attempts to reset communication by making an empty call. \Hypertarget{class_g_s_m___module_a1f632764cdcab45af061fbd0db3df9ee}\index{GSM\_Module@{GSM\_Module}!start\_receiving@{start\_receiving}}
+\index{start\_receiving@{start\_receiving}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{start\_receiving()}{start\_receiving()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a1f632764cdcab45af061fbd0db3df9ee} 
+void GSM\+\_\+\+Module\+::start\+\_\+receiving (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Starts receiving data via UART interrupts. 
+
+Starts receiving data from the GSM module via UART.
+
+This function enables UART interrupts to receive data from the GSM module and process incoming data as needed. \Hypertarget{class_g_s_m___module_a8ed6e8752fd00ecf7a91cb4dc54a5855}\index{GSM\_Module@{GSM\_Module}!transmit@{transmit}}
+\index{transmit@{transmit}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{transmit()}{transmit()}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_a8ed6e8752fd00ecf7a91cb4dc54a5855} 
+bool GSM\+\_\+\+Module\+::transmit (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Transmits data via UART. 
+
+Transmits a command or data to the GSM module.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the data buffer. \\
+\hline
+{\em size} & Size of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if transmission is successful, false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & Pointer to the data to transmit. \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & Length of the data to transmit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the transmission was successful, false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_g_s_m___module_ae494a9643f29b87d6d81e5264e60e57b}\index{GSM\_Module@{GSM\_Module}!HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}}
+\index{HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}!GSM\_Module@{GSM\_Module}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_RxCpltCallback}{HAL\_UART\_RxCpltCallback}}
+{\footnotesize\ttfamily \label{class_g_s_m___module_ae494a9643f29b87d6d81e5264e60e57b} 
+void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+UART receive complete callback function for handling data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em huart} & Pointer to the UART handle. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+GSM\+\_\+\+Module.\+hpp\item 
+GSM\+\_\+\+Module.\+cpp\end{DoxyCompactItemize}
