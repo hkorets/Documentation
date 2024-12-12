@@ -1,0 +1,102 @@
+\doxysection{GSMModule.\+hpp}
+\hypertarget{_g_s_m_module_8hpp_source}{}\label{_g_s_m_module_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ GSM\_MODULE.hpp}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Nov\ 2,\ 2024}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ gllekk}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INC\_GSM\_MODULE\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INC\_GSM\_MODULE\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\{}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_parameters}{Parameters}}\{}
+\DoxyCodeLine{00022\ \ \ \ \ UART\_HandleTypeDef\ *uart\_handle;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ uint16\_t\ rx\_pin;}
+\DoxyCodeLine{00025\ \ \ \ \ GPIO\_TypeDef\ *rx\_port;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ uint16\_t\ tx\_pin;}
+\DoxyCodeLine{00028\ \ \ \ \ GPIO\_TypeDef\ *tx\_port;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_s_m___module}{GSM\_Module}}\{}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{enum}\ State\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ IDLE,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CALLING,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ RECEIVE\_CALL,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ RINGING,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ HANG\_UP,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ SEND\_SMS,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ RECEIVE\_SMS,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ UNKNOWN}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ END\_OF\_MSG\ =\ 0x1A;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_g_s_m___module_a95c96525d9fa813e204f9b04e7ae3276}{GSM\_Module}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_parameters}{Parameters}}\&\ parameters);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_ab7a2b6fc1f3fdf8e0954d6c745989718}{send\_sms}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ number,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ message);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_abf2d6a6dcdb9245ad4f2df99b5709530}{make\_call}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ number);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_ae9814cef65f36094c72da2babf88a904}{hang\_up}}();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_af05508a1bf8a0fb40906dcb7b9bb60f9}{receive\_call}}();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_a59f6284475cad32984fc04727dc3e7c4}{receive\_sms}}();}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_s_m___module_a8ed6e8752fd00ecf7a91cb4dc54a5855}{transmit}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ data,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_s_m___module_a3b0e4014a2b7595e0384143cf0e3446d}{receive}}(\textcolor{keywordtype}{char}*\ buffer,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_a1f632764cdcab45af061fbd0db3df9ee}{start\_receiving}}();}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_s_m___module_a59ddf11268b8baaab2bbdb6087b26f17}{get\_signal\_strength}}();}
+\DoxyCodeLine{00113\ \ \ \ \ std::pair<std::string,\ std::string>\ \mbox{\hyperlink{class_g_s_m___module_a1cb6efab39560b6d26b1a9b1803a2f51}{GSM\_Module::get\_date}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ State\ \mbox{\hyperlink{class_g_s_m___module_a35afcd3bf62cfb5ef07928dd4c4a0e56}{prev\_state}}\ =\ IDLE;\ }
+\DoxyCodeLine{00117\ \ \ \ \ State\ \mbox{\hyperlink{class_g_s_m___module_a5c53208c60f68e454f9e37a2497285dc}{current\_state}}\ =\ IDLE;\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_a4acd995be66ca02d1c560edb3c6982f3}{receive\_signal\_strength}}(std::string\ buffer);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_a40f53cf638c071fe1788cad71139c87b}{receive\_date\_and\_time}}(std::string\ buffer);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ MSG\ =\ \textcolor{stringliteral}{"{}AT+CMGS="{}};\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ MSG\_TEXT\_MODE\ =\ \textcolor{stringliteral}{"{}AT+CMGF=1\(\backslash\)r\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ CALL\ =\ \textcolor{stringliteral}{"{}ATD+"{}};\ }
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ AT\ =\ \textcolor{stringliteral}{"{}AT\(\backslash\)r\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GPS\_ON\ =\ \textcolor{stringliteral}{"{}AT+GPS=1\(\backslash\)r\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GPS\_OFF\ =\ \textcolor{stringliteral}{"{}AT+GPS=0\(\backslash\)r\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GET\_TIME\ =\ \textcolor{stringliteral}{"{}AT+CCLK?\(\backslash\)r\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GET\_SIGNAL\ =\ \textcolor{stringliteral}{"{}AT+CSQ\(\backslash\)r\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ uint16\_t\ rx\_index\ =\ 0;\ }
+\DoxyCodeLine{00145\ \ \ \ \ uint8\_t\ rx\_buffer[256];\ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{struct_parameters}{Parameters}}\ parameters;\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{bool}\ send\_at\_command(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ command);}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ read\_sms(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ handle\_interruption();}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_s_m___module_ae494a9643f29b87d6d81e5264e60e57b}{HAL\_UART\_RxCpltCallback}}(UART\_HandleTypeDef*\ huart);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{int}\ signal\ =\ 0;}
+\DoxyCodeLine{00165\ \ \ \ \ std::string\ time;}
+\DoxyCodeLine{00166\ \ \ \ \ std::string\ date;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ [[maybe\_unused]]\ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_g_s_m___module}{GSM\_Module}}*\ gsm\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \mbox{\hyperlink{struct_parameters}{Parameters}}\ load\_parameters();}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_GSM\_MODULE\_HPP\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
